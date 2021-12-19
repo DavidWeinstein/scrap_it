@@ -6,7 +6,10 @@ from django.db.models.fields import CharField
 
 class Materials(models.Model):
     material_name = models.CharField(max_length=30)
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.FloatField()
+    
+    def check_price(self):
+        return self.price
     
     def __str__(self):
         return self.material_name
